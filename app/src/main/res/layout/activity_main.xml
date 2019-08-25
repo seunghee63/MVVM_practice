@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.song2.pracmvvm.MainViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/tv_main_act_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@{Integer.toString(viewModel.count)}"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="167dp"
+            tools:layout_editor_absoluteY="333dp" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_main_act_remove_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="28dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.decrease()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_remove_black_24dp" />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_main_act_add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="28dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.increase()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_add_black_24dp" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
